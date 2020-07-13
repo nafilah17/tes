@@ -36,4 +36,12 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    function hamster(){
+        return $this->hasMany('App\Hamster');
+    }
+
+    function oldHamsters(){
+        return $this->hasMany('App\Hamster')->getOldHamsters();
+    }
 }
