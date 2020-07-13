@@ -37,11 +37,9 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    function hamster(){
-        return $this->hasMany('App\Hamster');
-    }
+    
 
-    function oldHamsters(){
-        return $this->hasMany('App\Hamster')->getOldHamsters();
+    public function hamsters(){
+        return $this->belongsToMany('App\Hamster')->withPivot('role');
     }
 }

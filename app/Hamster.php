@@ -9,7 +9,9 @@ class Hamster extends Model
 
 	protected $fillable = ['name'];
 
-    function user(){
-        return $this->belongsTo('App\User');
+    function users(){
+        return $this->belongsToMany('App\User')->withPivot('role');
     }
+
+
 }
