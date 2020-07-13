@@ -4,17 +4,16 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
-use SoftDeletes;
+use Illuminate\Carbon;
+
 
 class Dogs extends Model
 {
+	protected $dates = ['birthday'];
 
-	protected static function boot(){
-		
-		parent::boot();
-
-		static::addGlobalScope('age', function (Builder $builder){
-			$builder->where('age','>',8);
-		});
+	function setNameAttribute($value){
+		return $this->attributes['name'] = strtoupper($value);
 	}
+
+
 }
