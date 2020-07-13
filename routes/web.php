@@ -16,3 +16,19 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+Route::get('cats', function(){
+
+        	\App\Cats::create(
+        		['info' => json_encode(['name' => 'Fluffy', 'long-hair' => true])
+        		]);
+
+        	\App\Cats::create(
+        		['info' => json_encode(['name' => 'Furball', 'long-hair' => false])
+        		]);
+
+        	\App\Cats::create(
+        		['info' => json_encode(['name' => 'Igor', 'long-hair' => true])
+        		]);
+        });
