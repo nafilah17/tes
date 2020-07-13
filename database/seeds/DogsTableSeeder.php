@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class DogTableSeeder extends Seeder
+class DogsTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,10 +12,10 @@ class DogTableSeeder extends Seeder
     public function run()
     {
         \App\Dogs::truncate();
-        \App\Dogs::create(['name' => 'Joe']);
-        \App\Dogs::create(['name' => 'Jock']);
-        \App\Dogs::create(['name' => 'Jackie']);
-        \App\Dogs::create(['name' => 'Jane']);
 
+       \App\Dogs::create(['name' => 'Joe', 'age' => 5]);
+       \App\Dogs::create(['name' => 'Jock', 'age' => 7]);
+       \App\Dogs::create(['name' => 'Jackie', 'age' => 2]);
+       \App\Dogs::create(['name' => 'Jane', 'age' => 9]);
     }
 }
