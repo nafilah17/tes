@@ -3,14 +3,18 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Builder;
+use SoftDeletes;
 
 class Dogs extends Model
 {
 
-	function dogsRequiringAntiRabbitBiteShot(){
-		return $this->ageGreaterThan(6);
+	protected static function boot(){
+		
+		parent::boot();
+
+		static::addGlobalScope('age', function (Builder $builder){
+			$builder->where('age','>',8);
+		});
 	}
-    function scopeAgeGreaterThan($query, $age){
-    	return $query->where('age', '>', $age);
-    }
 }
