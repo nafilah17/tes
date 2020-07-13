@@ -9,7 +9,7 @@ use Illuminate\Carbon;
 
 class Dogs extends Model
 {
-	protected $dates = ['birthday'];
+	protected $fillable = ['name'];
 
 	function setNameAttribute($value){
 		return $this->attributes['name'] = strtoupper($value);
